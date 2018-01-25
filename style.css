@@ -1,0 +1,2 @@
+.weathertable tr:nth-child(even) {background-color:red;}
+.weathertable tr:nth-child(odd) {background-color:blue;}

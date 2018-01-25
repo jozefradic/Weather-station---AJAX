@@ -52,13 +52,13 @@ $(document).ready(function() {
             var tr=getLine('Wind',data.wind.speed);
             table.append(tr);
 
-            var tr=getLine('MinTemp',data.main.temp_min);
+            var tr=getLine('MinTemp',data.main.temp_min-273.15);
             table.append(tr);
 
-            var tr=getLine('MaxTemp',data.main.temp_max);
+            var tr=getLine('MaxTemp',data.main.temp_max-273.15);
             table.append(tr);
 
-            var tr=getLine('Visibility',data.main.pressure+'hPa');
+            var tr=getLine('Visibility',data.weather[0].visibility);
             table.append(tr);
 
            }
@@ -66,7 +66,7 @@ $(document).ready(function() {
 
 
          },
-         
+
          type: 'GET'
 
       });
@@ -86,6 +86,6 @@ $(document).ready(function() {
         return tr;
 
 
-  }
-
+  
+};
 });
