@@ -58,23 +58,14 @@ $(document).ready(function() {
             var tr=getLine('MaxTemp',data.main.temp_max-273.15);
             table.append(tr);
 
-            var tr=getLine('Visibility',data.weather[0].visibility);
+            var tr=getLine("Google Maps", "<a target='_blank' href='https://www.google.com/maps/search/?api=1&query=" + data.coord.lat + "," + data.coord.lon + "'>"+city+"</a>");
             table.append(tr);
-
            }
-
-
-
          },
-
          type: 'GET'
-
       });
-
     }
-
   });
-
   function getLine(data1,data2){
       var tr=$("<tr/>");
       var td1=$("<td/>");
@@ -83,9 +74,6 @@ $(document).ready(function() {
         $(td2).append(data2);
         tr.append(td1);
         tr.append(td2);
-        return tr;
-
-
-  
+        return tr;  
 };
 });
