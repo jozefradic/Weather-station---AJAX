@@ -18,47 +18,46 @@ $(document).ready(function() {
          },
          dataType: 'json',
          success : function(data){
-            console.log("temp:"+data.main.temp);
-            console.log("desc:"+data.weather[0].description);
 
-            $('#content').empty();
+            $('#content').empty();      //vykreslovanie tabulky prvej
             var table=$("<table/>");
+            table.addClass("line");     //toto prida do kazdeho riadku hodi class="line"
 
-            var tr=getLine('City',city);
+            var tr=getLine('City :',city);
             table.append(tr);
 
-            var tr=getLine('Country',data.sys.country);
+            var tr=getLine('Country :',data.sys.country);
             table.append(tr);
 
-            var tr=getLine('Temperature',data.main.temp-273.15);
+            var tr=getLine('Temperature :',data.main.temp-273.15+'°C');
             table.append(tr);
 
-            var tr=getLine('Humidity',data.main.humidity+'%');
+            var tr=getLine('Humidity :',data.main.humidity+'%');
             table.append(tr);
 
-            var tr=getLine('Pressure',data.main.pressure+'hPa');
+            var tr=getLine('Pressure :',data.main.pressure+'hPa');
             table.append(tr);
 
            $('#content').append(table) ;
 
-           if($("#details").is(':checked')){
+           if($("#details").is(':checked')){    //vykreslenie detailu
 
-            var tr=getLine('Sunrise',data.sys.sunrise);
+            var tr=getLine('Sunrise :',new Date(data.sys.sunrise*1000).getHours()+':'+new Date(data.sys.sunrise*1000).getMinutes());
             table.append(tr);
 
-            var tr=getLine('Sunset',data.sys.sunset);
+            var tr=getLine('Sunset :',new Date(data.sys.sunset*1000).getHours()+':'+new Date(data.sys.sunset*1000).getMinutes());
             table.append(tr);
 
-            var tr=getLine('Wind',data.wind.speed);
+            var tr=getLine('Wind :',data.wind.speed+' km/h');
             table.append(tr);
 
-            var tr=getLine('MinTemp',data.main.temp_min-273.15);
+            var tr=getLine('MinTemp :',data.main.temp_min-273.15+'°C');
             table.append(tr);
 
-            var tr=getLine('MaxTemp',data.main.temp_max-273.15);
+            var tr=getLine('MaxTemp :',data.main.temp_max-273.15+'°C');
             table.append(tr);
 
-            var tr=getLine("Google Maps", "<a target='_blank' href='https://www.google.com/maps/search/?api=1&query=" + data.coord.lat + "," + data.coord.lon + "'>"+city+"</a>");
+            var tr=getLine("Map's location :", "<a target='_blank' href='https://www.google.com/maps/search/?api=1&query=" + data.coord.lat + "," + data.coord.lon + "'>"+city+"</a>");
             table.append(tr);
            }
          },
@@ -66,6 +65,8 @@ $(document).ready(function() {
       });
     }
   });
+ 
+
   function getLine(data1,data2){
       var tr=$("<tr/>");
       var td1=$("<td/>");
@@ -76,4 +77,7 @@ $(document).ready(function() {
         tr.append(td2);
         return tr;  
 };
+
+
+
 });

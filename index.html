@@ -2,29 +2,42 @@
 <head>
 <title>Formular</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="vyzor.css" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="jquery-3.2.1.min.js"></script>
   <script src="script.js"></script>
 </head>
 <body>
-  <div class="container">
-      <h1>Weather station</h1>
-  <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-      <table>
-    <tr>
-      <td>City:<Input type="text" id="city"></td>
-        <td>Country code:<Input type="text"  id="code"></td></tr>
-    <tr>
-      <td><input type="checkbox" id="details"> <label>details</label></td>
-        <td><input type="button" id="btnOk" value="get data"></td></tr>
-  </table>
+<div class="row">
+      
+
+  <div class="col-lg-4"></div>
+
+  <div class="col-lg-4">
+<h1>Weather station</h1><br>
+
+      
+    
+      <div>City: <Input type="text" id="city"> Country code: <Input type="text"  id="code" size="2"></div><br>
+
+     <div><input type="checkbox" id="details">More details     <input type="button" id="btnOk" value="Show info">
+</div>
+    
+    
+        
+  
+
+  <div id="content">           
+
+    </div>
+
+
   </div>
-  <div></div>
-  <div class="col-md-2" id="content" class="weathertable"></div><br>
+
+  <div class="col-lg-4"></div>
+
   </div>
+
 </div>
 </body>
 </html>
